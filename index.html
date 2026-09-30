@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1B5A4A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="致辞">
+<title>婚礼致辞 · Wedding speeches</title>
+<style>
+[hidden]{display:none!important}
+/* Reading card: one column of very large text. Two speeches, read back to back at the church. */
+:root{
+  --bg:#FFFFFF; --ink:#0F221D; --jade:#1B5A4A; --jade-bg:#E3EEE9; --line:#C3CFC9; --on-jade:#FFFFFF;
+  --fs:26px;
+  --f:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0C1512;--ink:#F1F6F3;--jade:#8BCFB8;--jade-bg:#1B2F29;--line:#33443E;--on-jade:#0C1512;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1512;--ink:#F1F6F3;--jade:#8BCFB8;--jade-bg:#1B2F29;--line:#33443E;--on-jade:#0C1512;color-scheme:dark}
+html{font-size:var(--fs);scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:500;-webkit-text-size-adjust:100%}
+.bar{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:calc(env(safe-area-inset-top,0px) + 8px) 16px 8px;display:flex;gap:6px;align-items:center}
+.bar a,.bar button{font:inherit;font-size:17px;font-weight:700;height:44px;padding:0 12px;border:2px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+.bar .jump{flex:1 1 0;min-width:0;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar button:not(.jump){flex:none;min-width:48px}
+main{max-width:34em;margin:0 auto;padding:1rem 16px calc(3rem + env(safe-area-inset-bottom,0px))}
+section{scroll-margin-top:70px}
+h1{font-size:1.25rem;line-height:1.4;margin:0}
+.sub{margin:.2rem 0 1.4rem;font-size:.7rem;font-weight:700;color:var(--jade)}
+p{margin:0 0 1.1em;line-height:1.85;letter-spacing:.02em}
+section[lang="en"] p{line-height:1.6;letter-spacing:0}
+.pause{display:block;width:3.5rem;height:4px;border-radius:2px;background:var(--jade);margin:-.2em 0 1.3em}
+.cue{display:inline-block;font-size:.7rem;font-weight:700;color:var(--jade);background:var(--jade-bg);border:2px solid var(--jade);border-radius:6px;padding:.25em .6em;line-height:1.4}
+.last{font-weight:700}
+.saved{margin-top:2rem;font-size:.6rem;font-weight:700;color:var(--jade)}
+.divider{border:0;border-top:3px solid var(--jade);margin:2rem 0 1.5rem}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button type="button" class="jump" data-go="p1">① 爸妈</button>
+  <button type="button" class="jump" data-go="p2" aria-label="② Church speech">② 教会</button>
+  <button type="button" class="jump" data-go="p3" aria-label="③ Dinner speech">③ 晚宴</button>
+  <button type="button" id="size" aria-label="字体大小 / Text size">A<span style="font-size:.75em">a</span></button>
+  <button type="button" id="theme" aria-label="深色或浅色 / Dark or light">◐</button>
+</div>
+<main>
+<section id="p1">
+  <h1>给爸爸妈妈的话</h1>
+  <p class="sub">2026年10月3日婚礼致辞 · 上午10:40</p>
+
+  <p>今天，我想借这个机会，对爸爸妈妈说几句话。</p>
+
+  <p>爸爸，谢谢您含辛茹苦地把我们抚养长大。我从小身体比较弱，常常生病，让您和妈妈多操了许多心。</p>
+
+  <p>在我心里，爸爸就像超人一样。您总是那么拼命地工作。只要能为家里多赚一点钱，什么工作您都愿意尝试。</p>
+
+  <p>小时候，您有时会责骂我。长大以后，我明白那是因为您希望我好，希望我有能力走出自己的路，在人生中闯出一片天地。</p>
+
+  <p>爸爸，现在您年纪渐长，该好好享享清福了。我希望以后有更多机会陪伴您、照顾您。祝您身体健康，长命百岁。</p>
+
+  <p>我也想说几句话给妈妈。</p>
+
+  <p>妈妈将近一个月前，因为跌倒导致脑出血，离开了我们。</p>
+  <span class="pause" aria-hidden="true"></span>
+
+  <p>她深爱着每一个孩子，也一直盼望着能参加我和晓楠的婚礼。今天我终于结婚了。我相信妈妈在天上看见，一定会为我们感到欣慰。</p>
+
+  <p>爸爸和妈妈一直相亲相爱。你们让我明白，夫妻之间应该怎样彼此疼爱、互相照顾。我也会这样去爱护晓楠。</p>
+
+  <p class="last">谢谢爸爸，谢谢妈妈。我爱你们。</p>
+
+  <p><span class="cue">把礼物交给爸爸</span></p>
+</section>
+
+<hr class="divider">
+
+<section id="p2" lang="en">
+  <h1>Church Wedding Appreciation Speech</h1>
+  <p class="sub">3 October 2026 · straight after the gift to Dad</p>
+
+  <p>Good morning, everyone.</p>
+
+  <p>On behalf of Sieu Nang and myself, thank you for being here to celebrate our marriage and witness our vows before God. Having our family and friends with us this morning means so much to us.</p>
+
+  <p>Whether you have travelled from far away or joined us from nearby, we are grateful that you have made time to be here. Some of you will not be joining us for the wedding dinner, so we want to take this opportunity to thank you for sharing this special morning with us.</p>
+
+  <p>Above all, we thank our Lord Jesus Christ for bringing us together. Both Sieu Nang and I prayed for a life partner for many years. In His perfect timing, God answered our prayers. His blessings have been far greater than we could have imagined, and today we begin our marriage with grateful hearts, trusting Him to guide us through the years ahead.</p>
+
+  <p>We would like to express our heartfelt thanks to Pastor Angeline, and to our premarital counsellors, Elder TC and Dr. Jean, for their guidance, prayers, and encouragement as we prepared for marriage.</p>
+
+  <p>We would also like to thank everyone who has given their time and effort to make this ceremony possible: our wedding coordinator, the decoration team, the registration team and ushers, our emcee, the worship team and our pianist, our Bible readers, the sound and AV crew, our photographers, our family members who helped in so many ways, and the Boys’ Brigade.</p>
+
+  <p>Thank you for planning, organising, preparing the church, welcoming our guests, and helping everything run smoothly. So much of your work happens quietly behind the scenes, but it means a great deal to us. We are deeply grateful for your care and willing service.</p>
+
+  <p>To our bridesmaids and groomsmen, thank you for standing beside us today, and for all your help since early this morning.</p>
+
+  <p>To our families, thank you for your love, prayers, and support throughout our lives and as we prepared for today.</p>
+  <span class="pause" aria-hidden="true"></span>
+
+  <p>This morning is also especially emotional for me because my mother passed away nearly a month ago. She had always hoped to be here for our wedding. I miss her deeply, and I carry her love with me today. Thank you to everyone who has comforted and supported our family during this difficult time.</p>
+  <span class="pause" aria-hidden="true"></span>
+
+  <p>As Sieu Nang and I begin our life together, we ask you to keep us in your prayers—that we will grow in faith, love one another with patience and kindness, and build a home filled with God’s love.</p>
+
+  <p>From the bottom of our hearts, thank you for celebrating with us, for your prayers, and for every act of kindness that has made this morning so meaningful.</p>
+
+  <p class="last">May God bless you all.</p>
+</section>
+
+<hr class="divider">
+
+<section id="p3" lang="en">
+  <h1>Wedding Dinner Appreciation Speech</h1>
+  <p class="sub">3 October 2026 · 8:10 PM · Hao Xiang Chi, United Point</p>
+
+  <p>Good evening, everyone.</p>
+
+  <p>Sieu Nang and I are so grateful that you are here to celebrate with us tonight. Seeing our family and friends together in one room means more than I can say.</p>
+
+  <p>Many of you have travelled a long way—from Taiwan, Sibu, Kuching, Singapore, China, and Australia. I’m especially happy to see my eldest brother Swee Xiang, my sister-in-law Su Luan and my nephew; my elder brother Swee Kay; William, Edward and Elisha, the children of my sister-in-law En Nang and brother-in-law David; Anna, who has come from Korea; and Kiew Siang (久祥), who has come from Switzerland. We are also delighted to welcome our dear friends from Pahang and Kuala Lumpur. We know it took time and effort to be here, and we thank every one of you.</p>
+
+  <p>To my father, thank you for your love and for all you have sacrificed for our family. It means so much to have you here tonight. Our special thanks also go to Sieu Nang’s brothers and sisters and their families, for your love and care for Sieu Nang over the years, and to Tan Sri Lau Kuan Kam and Puan Sri for honouring us with your presence tonight.</p>
+  <span class="pause" aria-hidden="true"></span>
+
+  <p>Tonight is especially emotional for me. My mother passed away nearly a month ago. I miss her deeply, and I carry her love with me as Sieu Nang and I begin our life together. Sieu Nang’s parents also passed away many years ago, and tonight we remember them with love. Thank you for the kindness you have shown my family during this time, and for sharing in our joy tonight.</p>
+  <span class="pause" aria-hidden="true"></span>
+
+  <p>I also want to thank Vinie and Gary, who brought Sieu Nang into my life. After a memorable climb through the Mossy Forest at Mount Irau in Cameron Highlands, Vinie introduced us. We took our time getting to know each other, and on 10 November 2022, I asked Sieu Nang to be my girlfriend. She said yes—and here we are.</p>
+
+  <p><span class="cue">Turn to Sieu Nang</span></p>
+
+  <p>Sieu Nang, I look forward to exploring the world and sharing every part of this journey with you.</p>
+
+  <p>Both Sieu Nang and I prayed for a life partner for many years. In His perfect timing, God answered our prayers and brought us together. The way He has worked in our lives amazes us, and His blessings have been far greater than we could have imagined.</p>
+
+  <p>And to our single friends here tonight: if finding a spouse is the desire of your heart, I pray that the Lord Jesus Christ will bless you with someone to share your life with. Keep praying and keep believing. Amen.</p>
+
+  <p class="last">From the bottom of our hearts, thank you for being here. Please enjoy the dinner, and let’s make wonderful memories together tonight.</p>
+</section>
+<p class="saved" id="saved" hidden>✓ 已存入本手机，没有网络也能阅读 · Saved on this phone, works offline</p>
+</main>
+<script>
+const S={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const sizes=[26,31,36]; let i=Math.max(0,sizes.indexOf(+S.get("sp-fs")));
+const apply=()=>document.documentElement.style.setProperty("--fs",sizes[i]+"px"); apply();
+document.getElementById("size").onclick=()=>{i=(i+1)%sizes.length;apply();S.set("sp-fs",sizes[i])};
+const th=S.get("sp-theme"); if(th) document.documentElement.dataset.theme=th;
+document.getElementById("theme").onclick=()=>{
+  const dark=document.documentElement.dataset.theme?document.documentElement.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  const next=dark?"light":"dark"; document.documentElement.dataset.theme=next; S.set("sp-theme",next)};
+/* Jump buttons scroll inside the page (plain #links open as external links in some previewers) */
+document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>{
+  const el=document.getElementById(b.dataset.go); if(!el) return;
+  const y=el.getBoundingClientRect().top+window.scrollY-document.querySelector(".bar").offsetHeight-8;
+  window.scrollTo({top:y,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}));
+/* Offline: keep a copy on the phone (GitHub Pages / https only) */
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){
+  navigator.serviceWorker.register("sw.js").then(()=>navigator.serviceWorker.ready).then(()=>{document.getElementById("saved").hidden=false}).catch(()=>{});
+}
+/* Keep the screen from dimming while reading, where the phone allows it */
+const wake=()=>{try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(()=>{})}catch(e){}};
+wake(); document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")wake()});
+</script>
+</body>
+</html>
