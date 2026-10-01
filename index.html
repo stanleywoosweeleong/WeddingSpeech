@@ -43,7 +43,9 @@ p{margin:0 0 1.1em;line-height:1.85;letter-spacing:.02em}
 .ver{display:none}
 section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="en"]{display:block}
 .ver[lang="en"] p{line-height:1.6;letter-spacing:0}
-.orig{font-weight:600}
+.tr-tag{display:none;margin:-.9rem 0 1.2rem;font-size:.6rem;font-weight:700;color:var(--ink)}
+section[data-orig="zh"] .ver[data-v="en"] .tr-tag,section[data-orig="en"] .ver[data-v="zh"] .tr-tag{display:block}
+.tr-tag::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.4em;border-radius:2px;background:var(--jade);vertical-align:.1em}
 .divider{border:0;border-top:3px solid var(--jade);margin:2rem 0 1.5rem}
 </style>
 </head>
@@ -61,6 +63,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="zh" lang="zh-Hans">
   <h1>给爸爸妈妈的话</h1>
   <p class="sub">2026年10月3日婚礼致辞 · 早上10:40</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>今天，我想借这个机会，对爸爸妈妈说几句话。</p>
   <p>爸爸，谢谢您含辛茹苦地把我们抚养长大。我从小身体比较弱，常常生病，让您和妈妈多操了许多心。</p>
   <p>在我心里，爸爸就像超人一样。您总是那么拼命地工作。只要能为家里多赚一点钱，什么工作您都愿意尝试。</p>
@@ -77,6 +80,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="en" lang="en">
   <h1>A Few Words to Mum and Dad</h1>
   <p class="sub">3 October 2026 · church wedding · 10:40 AM</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>Today, I would like to take this opportunity to say a few words to my father and mother.</p>
   <p>Dad, thank you for working so hard to raise us. I was a weak child and often fell ill, which gave you and Mum a great deal of worry.</p>
   <p>In my heart, Dad, you are like Superman. You always worked so hard. If it meant earning a little more for the family, you were willing to try any job.</p>
@@ -99,6 +103,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="zh" lang="zh-Hans">
   <h1>教会婚礼致谢辞</h1>
   <p class="sub">2026年10月3日 · 紧接在把礼物交给爸爸之后</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>大家早上好。</p>
   <p>我谨代表晓楠和我自己，谢谢各位今天来到这里，和我们一同庆祝婚礼，在神面前见证我们的誓约。今天早上有家人和朋友在身边，对我们意义重大。</p>
   <p>无论您是远道而来，还是从附近赶来，我们都很感激您抽空出席。有些朋友今晚不会出席婚宴，所以我们想借这个机会，谢谢您和我们一起度过这个特别的早晨。</p>
@@ -118,6 +123,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="en" lang="en">
   <h1>Church Wedding Appreciation Speech</h1>
   <p class="sub">3 October 2026 · straight after the gift to Dad</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>Good morning, everyone.</p>
   <p>On behalf of Sieu Nang and myself, thank you for being here to celebrate our marriage and witness our vows before God. Having our family and friends with us this morning means so much to us.</p>
   <p>Whether you have travelled from far away or joined us from nearby, we are grateful that you have made time to be here. Some of you will not be joining us for the wedding dinner, so we want to take this opportunity to thank you for sharing this special morning with us.</p>
@@ -143,6 +149,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="zh" lang="zh-Hans">
   <h1>婚宴致谢辞</h1>
   <p class="sub">2026年10月3日 · 晚上8:10 · 好想吃海鲜大酒楼 United Point</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>各位晚上好。</p>
   <p>晓楠和我非常感恩，今晚大家来到这里和我们一起庆祝。看到我们的家人和朋友齐聚一堂，我心里的感动难以言表。</p>
   <p>很多人远道而来，从台湾、诗巫、古晋、新加坡、中国和澳洲赶来。我特别高兴见到我的大哥 Swee Xiang、大嫂 Su Luan 和侄子；我的哥哥 Swee Kay；晓楠的姐妹忆楠和她的先生 David 的孩子 William、Edward 和 Elisha；从韩国来的 Anna；还有从瑞士来的久祥。我们也很高兴欢迎来自彭亨和吉隆坡的好朋友们。我们知道大家花了时间和心力才来到这里，谢谢每一位。</p>
@@ -160,6 +167,7 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 <div class="ver" data-v="en" lang="en">
   <h1>Wedding Dinner Appreciation Speech</h1>
   <p class="sub">3 October 2026 · 8:10 PM · Hao Xiang Chi, United Point</p>
+  <p class="tr-tag">译文 · Translation</p>
   <p>Good evening, everyone.</p>
   <p>Sieu Nang and I are so grateful that you are here to celebrate with us tonight. Seeing our family and friends together in one room means more than I can say.</p>
   <p>Many of you have travelled a long way—from Taiwan, Sibu, Kuching, Singapore, China, and Australia. I’m especially happy to see my eldest brother Swee Xiang, my sister-in-law Su Luan and my nephew; my elder brother Swee Kay; William, Edward and Elisha, the children of my sister-in-law Ee Nang and brother-in-law David; Anna, who has come from Korea; and Kiew Siang (久祥), who has come from Switzerland. We are also delighted to welcome our dear friends from Pahang and Kuala Lumpur. We know it took time and effort to be here, and we thank every one of you.</p>
@@ -196,11 +204,12 @@ document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>{
 if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){
   navigator.serviceWorker.register("sw.js").then(()=>navigator.serviceWorker.ready).then(()=>{document.getElementById("saved").hidden=false}).catch(()=>{});
 }
-/* 中文 / EN per speech. Each opens in the language it will be delivered in; the switch flips just that speech. */
-function setVer(sec,l){const s=document.getElementById(sec);if(!s)return;s.dataset.show=l;
-  s.querySelectorAll(".lsw button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)))}
-document.querySelectorAll("section[data-orig]").forEach(s=>setVer(s.id,s.dataset.orig));
-document.querySelectorAll(".lsw button").forEach(b=>b.addEventListener("click",()=>setVer(b.dataset.sec,b.dataset.l)));
+/* 中文 / EN per speech. The choice is remembered per speech; a translated version shows a "译文 · Translation" tag. */
+function setVer(sec,l,save){const s=document.getElementById(sec);if(!s)return;s.dataset.show=l;
+  s.querySelectorAll(".lsw button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)));
+  if(save)S.set("sp-lang-"+sec,l)}
+document.querySelectorAll("section[data-orig]").forEach(s=>{const v=S.get("sp-lang-"+s.id);setVer(s.id,v==="zh"||v==="en"?v:s.dataset.orig)});
+document.querySelectorAll(".lsw button").forEach(b=>b.addEventListener("click",()=>setVer(b.dataset.sec,b.dataset.l,true)));
 /* Keep the screen from dimming while reading, where the phone allows it */
 const wake=()=>{try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(()=>{})}catch(e){}};
 wake(); document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")wake()});

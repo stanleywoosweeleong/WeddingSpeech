@@ -1,6 +1,6 @@
 /* Wedding speeches service worker.
    Bump VERSION every time you change index.html, so the phone picks up the new wording. */
-const VERSION = "speeches-2026-1001-4";
+const VERSION = "speeches-2026-1001-5";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png", "./apple-touch-icon.png"];
 
