@@ -33,11 +33,17 @@ section{scroll-margin-top:70px}
 h1{font-size:1.25rem;line-height:1.4;margin:0}
 .sub{margin:.2rem 0 1.4rem;font-size:.7rem;font-weight:700;color:var(--jade)}
 p{margin:0 0 1.1em;line-height:1.85;letter-spacing:.02em}
-section[lang="en"] p{line-height:1.6;letter-spacing:0}
 .pause{display:block;width:3.5rem;height:4px;border-radius:2px;background:var(--jade);margin:-.2em 0 1.3em}
 .cue{display:inline-block;font-size:.7rem;font-weight:700;color:var(--jade);background:var(--jade-bg);border:2px solid var(--jade);border-radius:6px;padding:.25em .6em;line-height:1.4}
 .last{font-weight:700}
 .saved{margin-top:2rem;font-size:.6rem;font-weight:700;color:var(--jade)}
+.lsw{float:right;display:flex;gap:6px;margin:0 0 .4rem .6rem}
+.lsw button{font:inherit;font-size:16px;font-weight:700;height:40px;min-width:52px;padding:0 10px;border:2px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);cursor:pointer}
+.lsw button[aria-pressed="true"]{background:var(--jade);border-color:var(--jade);color:var(--on-jade)}
+.ver{display:none}
+section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="en"]{display:block}
+.ver[lang="en"] p{line-height:1.6;letter-spacing:0}
+.orig{font-weight:600}
 .divider{border:0;border-top:3px solid var(--jade);margin:2rem 0 1.5rem}
 </style>
 </head>
@@ -50,98 +56,124 @@ section[lang="en"] p{line-height:1.6;letter-spacing:0}
   <button type="button" id="theme" aria-label="深色或浅色 / Dark or light">◐</button>
 </div>
 <main>
-<section id="p1">
+<section id="p1" data-orig="zh" data-show="zh">
+<div class="lsw" role="group" aria-label="语言 / Language"><button type="button" data-sec="p1" data-l="zh">中文</button><button type="button" data-sec="p1" data-l="en">EN</button></div>
+<div class="ver" data-v="zh" lang="zh-Hans">
   <h1>给爸爸妈妈的话</h1>
-  <p class="sub">2026年10月3日婚礼致辞 · 上午10:40</p>
-
+  <p class="sub">2026年10月3日婚礼致辞 · 早上10:40</p>
   <p>今天，我想借这个机会，对爸爸妈妈说几句话。</p>
-
   <p>爸爸，谢谢您含辛茹苦地把我们抚养长大。我从小身体比较弱，常常生病，让您和妈妈多操了许多心。</p>
-
   <p>在我心里，爸爸就像超人一样。您总是那么拼命地工作。只要能为家里多赚一点钱，什么工作您都愿意尝试。</p>
-
   <p>小时候，您有时会责骂我。长大以后，我明白那是因为您希望我好，希望我有能力走出自己的路，在人生中闯出一片天地。</p>
-
   <p>爸爸，现在您年纪渐长，该好好享享清福了。我希望以后有更多机会陪伴您、照顾您。祝您身体健康，长命百岁。</p>
-
   <p>我也想说几句话给妈妈。</p>
-
   <p>妈妈将近一个月前，因为跌倒导致脑出血，离开了我们。</p>
   <span class="pause" aria-hidden="true"></span>
-
   <p>她深爱着每一个孩子，也一直盼望着能参加我和晓楠的婚礼。今天我终于结婚了。我相信妈妈在天上看见，一定会为我们感到欣慰。</p>
-
   <p>爸爸和妈妈一直相亲相爱。你们让我明白，夫妻之间应该怎样彼此疼爱、互相照顾。我也会这样去爱护晓楠。</p>
-
   <p class="last">谢谢爸爸，谢谢妈妈。我爱你们。</p>
-
   <p><span class="cue">把礼物交给爸爸</span></p>
+</div>
+<div class="ver" data-v="en" lang="en">
+  <h1>A Few Words to Mum and Dad</h1>
+  <p class="sub">3 October 2026 · church wedding · 10:40 AM</p>
+  <p>Today, I would like to take this opportunity to say a few words to my father and mother.</p>
+  <p>Dad, thank you for working so hard to raise us. I was a weak child and often fell ill, which gave you and Mum a great deal of worry.</p>
+  <p>In my heart, Dad, you are like Superman. You always worked so hard. If it meant earning a little more for the family, you were willing to try any job.</p>
+  <p>When I was young, you sometimes scolded me. Now that I am grown, I understand it was because you wanted the best for me, and wanted me to be able to find my own way and make something of my life.</p>
+  <p>Dad, you are getting older now, and it is time for you to rest and enjoy life. I hope to have more chances to spend time with you and take care of you. I wish you good health and a long life.</p>
+  <p>I would also like to say a few words to Mum.</p>
+  <p>Nearly a month ago, Mum had a fall that caused bleeding in her brain, and she left us.</p>
+  <span class="pause" aria-hidden="true"></span>
+  <p>She loved every one of her children dearly, and she had always looked forward to being at Sieu Nang’s and my wedding. Today I am finally married. I believe Mum is watching from heaven, and she must be glad for us.</p>
+  <p>Dad and Mum always loved each other dearly. You showed me how a husband and wife should cherish and care for each other. I will love and look after Sieu Nang in the same way.</p>
+  <p class="last">Thank you, Dad. Thank you, Mum. I love you.</p>
+  <p><span class="cue">Give the gift to Dad</span></p>
+</div>
 </section>
 
 <hr class="divider">
 
-<section id="p2" lang="en">
+<section id="p2" data-orig="en" data-show="en">
+<div class="lsw" role="group" aria-label="语言 / Language"><button type="button" data-sec="p2" data-l="zh">中文</button><button type="button" data-sec="p2" data-l="en">EN</button></div>
+<div class="ver" data-v="zh" lang="zh-Hans">
+  <h1>教会婚礼致谢辞</h1>
+  <p class="sub">2026年10月3日 · 紧接在把礼物交给爸爸之后</p>
+  <p>大家早上好。</p>
+  <p>我谨代表晓楠和我自己，谢谢各位今天来到这里，和我们一同庆祝婚礼，在神面前见证我们的誓约。今天早上有家人和朋友在身边，对我们意义重大。</p>
+  <p>无论您是远道而来，还是从附近赶来，我们都很感激您抽空出席。有些朋友今晚不会出席婚宴，所以我们想借这个机会，谢谢您和我们一起度过这个特别的早晨。</p>
+  <p>最重要的是，我们感谢主耶稣基督把我们带到一起。晓楠和我都为终身伴侣祷告了许多年。在祂完美的时间里，神应允了我们的祷告。祂的祝福远远超过我们所能想象的。今天，我们怀着感恩的心开始我们的婚姻，信靠祂带领我们走过往后的岁月。</p>
+  <p>我们衷心感谢 Angeline 牧师，以及我们的婚前辅导 TC 长老和 Jean 医生，在我们预备进入婚姻的过程中，给我们指导、为我们祷告、给我们鼓励。</p>
+  <p>我们也要感谢每一位付出时间和心力、让这场婚礼得以举行的朋友：我们的婚礼统筹、布置团队、报到与招待团队、司仪、敬拜团队和司琴、读经同工、音响与投影团队、摄影师、在各方面帮忙的家人，还有少年军（BB）。</p>
+  <p>谢谢你们策划、安排、布置教会、接待宾客，让一切顺利进行。你们很多的付出都是在幕后默默完成的，但对我们来说意义非凡。我们由衷感谢你们的关爱和甘心的服事。</p>
+  <p>谢谢我们的伴娘和伴郎，今天站在我们身边，也谢谢你们从一大早就开始的所有帮忙。</p>
+  <p>谢谢我们的家人，一直以来给我们的爱、祷告和支持，也谢谢你们在我们筹备今天的过程中所做的一切。</p>
+  <span class="pause" aria-hidden="true"></span>
+  <p>今天早上对我来说也格外感触，因为我的母亲在将近一个月前离开了我们。她一直盼望能参加我们的婚礼。我非常想念她，今天我带着她的爱站在这里。谢谢在这段艰难的日子里安慰和支持我们一家的每一位。</p>
+  <span class="pause" aria-hidden="true"></span>
+  <p>晓楠和我即将开始共同的生活，请大家在祷告中记念我们：愿我们在信心上成长，以忍耐和恩慈彼此相爱，建立一个充满神的爱的家。</p>
+  <p>我们从心底感谢各位与我们一同庆祝，谢谢你们的祷告，也谢谢让这个早晨如此有意义的每一份善意。</p>
+  <p class="last">愿神祝福大家。</p>
+</div>
+<div class="ver" data-v="en" lang="en">
   <h1>Church Wedding Appreciation Speech</h1>
   <p class="sub">3 October 2026 · straight after the gift to Dad</p>
-
   <p>Good morning, everyone.</p>
-
   <p>On behalf of Sieu Nang and myself, thank you for being here to celebrate our marriage and witness our vows before God. Having our family and friends with us this morning means so much to us.</p>
-
   <p>Whether you have travelled from far away or joined us from nearby, we are grateful that you have made time to be here. Some of you will not be joining us for the wedding dinner, so we want to take this opportunity to thank you for sharing this special morning with us.</p>
-
   <p>Above all, we thank our Lord Jesus Christ for bringing us together. Both Sieu Nang and I prayed for a life partner for many years. In His perfect timing, God answered our prayers. His blessings have been far greater than we could have imagined, and today we begin our marriage with grateful hearts, trusting Him to guide us through the years ahead.</p>
-
   <p>We would like to express our heartfelt thanks to Pastor Angeline, and to our premarital counsellors, Elder TC and Dr. Jean, for their guidance, prayers, and encouragement as we prepared for marriage.</p>
-
   <p>We would also like to thank everyone who has given their time and effort to make this ceremony possible: our wedding coordinator, the decoration team, the registration team and ushers, our emcee, the worship team and our pianist, our Bible readers, the sound and AV crew, our photographers, our family members who helped in so many ways, and the Boys’ Brigade.</p>
-
   <p>Thank you for planning, organising, preparing the church, welcoming our guests, and helping everything run smoothly. So much of your work happens quietly behind the scenes, but it means a great deal to us. We are deeply grateful for your care and willing service.</p>
-
   <p>To our bridesmaids and groomsmen, thank you for standing beside us today, and for all your help since early this morning.</p>
-
   <p>To our families, thank you for your love, prayers, and support throughout our lives and as we prepared for today.</p>
   <span class="pause" aria-hidden="true"></span>
-
   <p>This morning is also especially emotional for me because my mother passed away nearly a month ago. She had always hoped to be here for our wedding. I miss her deeply, and I carry her love with me today. Thank you to everyone who has comforted and supported our family during this difficult time.</p>
   <span class="pause" aria-hidden="true"></span>
-
   <p>As Sieu Nang and I begin our life together, we ask you to keep us in your prayers—that we will grow in faith, love one another with patience and kindness, and build a home filled with God’s love.</p>
-
   <p>From the bottom of our hearts, thank you for celebrating with us, for your prayers, and for every act of kindness that has made this morning so meaningful.</p>
-
   <p class="last">May God bless you all.</p>
+</div>
 </section>
 
 <hr class="divider">
 
-<section id="p3" lang="en">
+<section id="p3" data-orig="en" data-show="en">
+<div class="lsw" role="group" aria-label="语言 / Language"><button type="button" data-sec="p3" data-l="zh">中文</button><button type="button" data-sec="p3" data-l="en">EN</button></div>
+<div class="ver" data-v="zh" lang="zh-Hans">
+  <h1>婚宴致谢辞</h1>
+  <p class="sub">2026年10月3日 · 晚上8:10 · 好想吃海鲜大酒楼 United Point</p>
+  <p>各位晚上好。</p>
+  <p>晓楠和我非常感恩，今晚大家来到这里和我们一起庆祝。看到我们的家人和朋友齐聚一堂，我心里的感动难以言表。</p>
+  <p>很多人远道而来，从台湾、诗巫、古晋、新加坡、中国和澳洲赶来。我特别高兴见到我的大哥 Swee Xiang、大嫂 Su Luan 和侄子；我的哥哥 Swee Kay；晓楠的姐妹忆楠和她的先生 David 的孩子 William、Edward 和 Elisha；从韩国来的 Anna；还有从瑞士来的久祥。我们也很高兴欢迎来自彭亨和吉隆坡的好朋友们。我们知道大家花了时间和心力才来到这里，谢谢每一位。</p>
+  <p>爸爸，谢谢您的爱，也谢谢您为这个家所做的一切牺牲。今晚有您在这里，对我意义重大。我们也特别感谢晓楠的兄弟姐妹和他们的家人，多年来对晓楠的爱护和照顾；也感谢丹斯里刘官金和潘斯里今晚莅临，让我们倍感荣幸。</p>
+  <span class="pause" aria-hidden="true"></span>
+  <p>今晚我的心情格外激动。我的母亲在将近一个月前离开了我们。我非常想念她，晓楠和我开始共同生活的这一天，我带着她的爱前行。晓楠的父母也在多年前离世，今晚我们以爱怀念他们。谢谢大家在这段时间给我家人的关怀，也谢谢大家今晚和我们分享喜乐。</p>
+  <span class="pause" aria-hidden="true"></span>
+  <p>我也要感谢 Vinie 和 Gary，是他们把晓楠带进我的生命。那次在金马仑高原依劳山（Gunung Irau）的青苔森林，一起完成了一趟难忘的登山之后，Vinie 介绍我们认识。我们慢慢地互相了解，2022年11月10日，我请晓楠做我的女朋友。她答应了，于是就有了今天。</p>
+  <p><span class="cue">转向晓楠</span></p>
+  <p>晓楠，我期待和你一起探索这个世界，和你分享这段旅程的每一部分。</p>
+  <p>晓楠和我都为终身伴侣祷告了许多年。在祂完美的时间里，神应允了我们的祷告，把我们带到一起。祂在我们生命中的作为令我们惊叹，祂的祝福远远超过我们所能想象的。</p>
+  <p>也想对今晚在座的单身朋友说：如果找到另一半是你心里的渴望，我祈求主耶稣基督赐福给你，让你遇见能共度一生的人。继续祷告，继续相信。阿们。</p>
+  <p class="last">我们从心底感谢各位今晚的光临。请大家尽情享用晚宴，让我们今晚一起留下美好的回忆。</p>
+</div>
+<div class="ver" data-v="en" lang="en">
   <h1>Wedding Dinner Appreciation Speech</h1>
   <p class="sub">3 October 2026 · 8:10 PM · Hao Xiang Chi, United Point</p>
-
   <p>Good evening, everyone.</p>
-
   <p>Sieu Nang and I are so grateful that you are here to celebrate with us tonight. Seeing our family and friends together in one room means more than I can say.</p>
-
-  <p>Many of you have travelled a long way—from Taiwan, Sibu, Kuching, Singapore, China, and Australia. I’m especially happy to see my eldest brother Swee Xiang, my sister-in-law Su Luan and my nephew; my elder brother Swee Kay; William, Edward and Elisha, the children of my sister-in-law En Nang and brother-in-law David; Anna, who has come from Korea; and Kiew Siang (久祥), who has come from Switzerland. We are also delighted to welcome our dear friends from Pahang and Kuala Lumpur. We know it took time and effort to be here, and we thank every one of you.</p>
-
+  <p>Many of you have travelled a long way—from Taiwan, Sibu, Kuching, Singapore, China, and Australia. I’m especially happy to see my eldest brother Swee Xiang, my sister-in-law Su Luan and my nephew; my elder brother Swee Kay; William, Edward and Elisha, the children of my sister-in-law Ee Nang and brother-in-law David; Anna, who has come from Korea; and Kiew Siang (久祥), who has come from Switzerland. We are also delighted to welcome our dear friends from Pahang and Kuala Lumpur. We know it took time and effort to be here, and we thank every one of you.</p>
   <p>To my father, thank you for your love and for all you have sacrificed for our family. It means so much to have you here tonight. Our special thanks also go to Sieu Nang’s brothers and sisters and their families, for your love and care for Sieu Nang over the years, and to Tan Sri Lau Kuan Kam and Puan Sri for honouring us with your presence tonight.</p>
   <span class="pause" aria-hidden="true"></span>
-
   <p>Tonight is especially emotional for me. My mother passed away nearly a month ago. I miss her deeply, and I carry her love with me as Sieu Nang and I begin our life together. Sieu Nang’s parents also passed away many years ago, and tonight we remember them with love. Thank you for the kindness you have shown my family during this time, and for sharing in our joy tonight.</p>
   <span class="pause" aria-hidden="true"></span>
-
   <p>I also want to thank Vinie and Gary, who brought Sieu Nang into my life. After a memorable climb through the Mossy Forest at Mount Irau in Cameron Highlands, Vinie introduced us. We took our time getting to know each other, and on 10 November 2022, I asked Sieu Nang to be my girlfriend. She said yes—and here we are.</p>
-
   <p><span class="cue">Turn to Sieu Nang</span></p>
-
   <p>Sieu Nang, I look forward to exploring the world and sharing every part of this journey with you.</p>
-
   <p>Both Sieu Nang and I prayed for a life partner for many years. In His perfect timing, God answered our prayers and brought us together. The way He has worked in our lives amazes us, and His blessings have been far greater than we could have imagined.</p>
-
   <p>And to our single friends here tonight: if finding a spouse is the desire of your heart, I pray that the Lord Jesus Christ will bless you with someone to share your life with. Keep praying and keep believing. Amen.</p>
-
   <p class="last">From the bottom of our hearts, thank you for being here. Please enjoy the dinner, and let’s make wonderful memories together tonight.</p>
+</div>
 </section>
 <p class="saved" id="saved" hidden>✓ 已存入本手机，没有网络也能阅读 · Saved on this phone, works offline</p>
 </main>
@@ -164,6 +196,11 @@ document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>{
 if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){
   navigator.serviceWorker.register("sw.js").then(()=>navigator.serviceWorker.ready).then(()=>{document.getElementById("saved").hidden=false}).catch(()=>{});
 }
+/* 中文 / EN per speech. Each opens in the language it will be delivered in; the switch flips just that speech. */
+function setVer(sec,l){const s=document.getElementById(sec);if(!s)return;s.dataset.show=l;
+  s.querySelectorAll(".lsw button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)))}
+document.querySelectorAll("section[data-orig]").forEach(s=>setVer(s.id,s.dataset.orig));
+document.querySelectorAll(".lsw button").forEach(b=>b.addEventListener("click",()=>setVer(b.dataset.sec,b.dataset.l)));
 /* Keep the screen from dimming while reading, where the phone allows it */
 const wake=()=>{try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(()=>{})}catch(e){}};
 wake(); document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")wake()});
