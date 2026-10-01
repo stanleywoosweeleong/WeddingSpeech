@@ -47,6 +47,8 @@ section[data-show="zh"] .ver[data-v="zh"],section[data-show="en"] .ver[data-v="e
 section[data-orig="zh"] .ver[data-v="en"] .tr-tag,section[data-orig="en"] .ver[data-v="zh"] .tr-tag{display:block}
 .tr-tag::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.4em;border-radius:2px;background:var(--jade);vertical-align:.1em}
 .divider{border:0;border-top:3px solid var(--jade);margin:2rem 0 1.5rem}
+/* update toast */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));z-index:15;width:max-content;max-width:calc(100% - 32px);box-sizing:border-box;padding:.7rem 1.1rem;border-radius:6px;background:var(--jade);color:var(--on-jade);font-size:17px;font-weight:700;line-height:1.4;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 </style>
 </head>
 <body>
@@ -185,6 +187,7 @@ section[data-orig="zh"] .ver[data-v="en"] .tr-tag,section[data-orig="en"] .ver[d
 </section>
 <p class="saved" id="saved" hidden>✓ 已存入本手机，没有网络也能阅读 · Saved on this phone, works offline</p>
 </main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
 const S={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const sizes=[26,31,36]; let i=Math.max(0,sizes.indexOf(+S.get("sp-fs")));
@@ -213,6 +216,47 @@ document.querySelectorAll(".lsw button").forEach(b=>b.addEventListener("click",(
 /* Keep the screen from dimming while reading, where the phone allows it */
 const wake=()=>{try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(()=>{})}catch(e){}};
 wake(); document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")wake()});
+/* Live update, as in the wedding app. A fingerprint of this page (styles, script and the speech wording) is
+   compared with the published index.html when the app is opened, brought back to the front, comes online, and
+   every minute while open. If the published copy differs, the offline copy is refreshed and the page reloads
+   at once, back to the same place in the speech, then says so. No VERSION bump is needed for wording changes. */
+function fnv(s){let x=0x811c9dc5;for(let i=0;i<s.length;i++){x^=s.charCodeAt(i);x=Math.imul(x,0x01000193)}return (x>>>0).toString(36)}
+const codeOf=d=>fnv([...d.querySelectorAll("style,script")].filter(e=>!e.attributes.length).map(e=>e.textContent)
+  .concat((d.querySelector("main")||{}).textContent||"").join("\u0000"));   /* plain tags only: ignores styles browser extensions inject */
+const OWN_CODE=codeOf(document);
+const SS={get(k){try{return sessionStorage.getItem(k)}catch(e){return null}},set(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}};
+let checking=false;
+async function checkUpdate(){
+  if(checking||!navigator.onLine||!("serviceWorker" in navigator)||!navigator.serviceWorker.controller) return;
+  checking=true;
+  try{
+    navigator.serviceWorker.getRegistration().then(r=>r&&r.update()).catch(()=>{});
+    const res=await fetch("./index.html?fresh="+Date.now(),{cache:"no-store"});
+    if(!res.ok) return;
+    const txt=await res.text();
+    const doc=new DOMParser().parseFromString(txt,"text/html");
+    if(!doc.querySelector("main")) return;
+    const pub=codeOf(doc);
+    if(pub===OWN_CODE||SS.get("sp-tried")===pub) return;   /* same version, or already reloaded once for it */
+    SS.set("sp-tried",pub);
+    const keys=await caches.keys();
+    await Promise.all(keys.map(k=>caches.open(k).then(c=>c.put("./index.html",new Response(txt,{headers:{"Content-Type":"text/html; charset=utf-8"}})))));
+    SS.set("sp-y",String(Math.round(window.scrollY)));     /* come back to the same place in the speech */
+    location.reload();
+  }catch(e){}finally{checking=false}
+}
+function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.hidden=false;clearTimeout(showToast.t);showToast.t=setTimeout(()=>{el.hidden=true},4500)}
+(function(){const y=+SS.get("sp-y");if(y){SS.set("sp-y","");history.scrollRestoration="manual";requestAnimationFrame(()=>window.scrollTo(0,y))}})();
+/* Toast whenever this phone opens a newer version than it last ran: after a live reload, or when the app is
+   simply opened again after a push. A phone that already used the app before this check counts too. */
+(function(){const prev=S.get("sp-code");
+  const returning=prev||S.get("sp-fs")||S.get("sp-theme")||S.get("sp-lang-p1")||S.get("sp-lang-p2")||S.get("sp-lang-p3");
+  if(returning&&prev!==OWN_CODE)setTimeout(()=>showToast("已更新到最新版本 · Updated to the latest version"),400);
+  S.set("sp-code",OWN_CODE)})();
+if("serviceWorker" in navigator){navigator.serviceWorker.ready.then(()=>setTimeout(checkUpdate,1500)).catch(()=>{})}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")checkUpdate()});
+addEventListener("online",checkUpdate);
+setInterval(()=>{if(document.visibilityState==="visible")checkUpdate()},60000);
 </script>
 </body>
 </html>
